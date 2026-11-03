@@ -86,7 +86,7 @@ const NewGalleryCourseWise = () => {
     const getMergedSchedules = async (courseId, parentId = 0) => {
         try {
             setLoading(true);
-            const response = await Network.fetchCheduleApi(courseId, parentId);
+            const response = await Network.fetchScheduleApi(courseId, parentId);
             setParentName(response?.parentName || '');
             if (response?.contentList) {
                 const activeSchedules = response.contentList.filter(item => item.active === true);
@@ -221,21 +221,21 @@ const NewGalleryCourseWise = () => {
     const getItemIcon = (entityType) => {
         switch (entityType) {
             case 'video':
-                return <PlayCircleOutlineIcon sx={{ color: '#FFD700' }} />;
+                return <PlayCircleOutlineIcon sx={{ color: '#00382B' }} />;
             case 'note':
-                return <PictureAsPdfIcon sx={{ color: '#FFD700' }} />;
+                return <PictureAsPdfIcon sx={{ color: '#00382B' }} />;
             case 'blog':
-                return <ArticleIcon sx={{ color: '#FFD700' }} />;
+                return <ArticleIcon sx={{ color: '#00382B' }} />;
             case 'audio':
-                return <AudiotrackIcon sx={{ color: '#FFD700' }} />;
+                return <AudiotrackIcon sx={{ color: '#00382B' }} />;
             case 'folder':
-                return <FolderIcon sx={{ color: '#FFD700' }} />;
+                return <FolderIcon sx={{ color: '#00382B' }} />;
             case 'quiz':
-                return <FolderIcon sx={{ color: '#FFD700' }} />;
+                return <FolderIcon sx={{ color: '#00382B' }} />;
             case 'image':
-                return <ImageIcon sx={{ color: '#FFD700' }} />;
+                return <ImageIcon sx={{ color: '#00382B' }} />;
             default:
-                return <ScheduleIcon sx={{ color: '#FFD700' }} />;
+                return <ScheduleIcon sx={{ color: '#00382B' }} />;
         }
     };
 
@@ -264,23 +264,9 @@ const NewGalleryCourseWise = () => {
         <Box
             sx={{
                 minHeight: '100vh',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: '#ffffff',
                 position: 'relative',
                 overflow: 'hidden',
-                '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    background: `
-                        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 177, 153, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%)
-                    `,
-                    zIndex: 1,
-                },
             }}
         >
             <Container
@@ -298,21 +284,20 @@ const NewGalleryCourseWise = () => {
                         sx={{
                             display: 'inline-flex',
                             alignItems: 'center',
-                            background: 'rgba(255, 255, 255, 0.1)',
-                            backdropFilter: 'blur(10px)',
-                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                            background: 'rgb(0 56 43 / var(--tw-bg-opacity, 1))',
+                            border: '1px solid rgba(0, 0, 0, 0.08)',
                             borderRadius: '50px',
                             px: 3,
                             py: 1,
                             mb: 4,
                         }}
                     >
-                        <PhotoLibraryIcon sx={{ color: '#FFD700', mr: 1 }} />
+                        <PhotoLibraryIcon sx={{ color: '#fff', mr: 1 }} />
                         <Typography
                             variant="body2"
                             sx={{
                                 color: '#fff',
-                                fontWeight: 500,
+                                fontWeight: 700,
                                 letterSpacing: '0.5px'
                             }}
                         >
@@ -323,11 +308,8 @@ const NewGalleryCourseWise = () => {
                     <Typography
                         variant="h1"
                         sx={{
-                            fontWeight: 700,
-                            background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                            backgroundClip: 'text',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
+                            fontWeight: 800,
+                            color: '#00382B',
                             mb: 3,
                             fontSize: { xs: '2.5rem', md: '4rem' },
                             lineHeight: 1.2,
@@ -339,7 +321,7 @@ const NewGalleryCourseWise = () => {
                     <Typography
                         variant="h6"
                         sx={{
-                            color: 'rgba(255, 255, 255, 0.8)',
+                            color: '#637068',
                             maxWidth: '600px',
                             mx: 'auto',
                             lineHeight: 1.6,
@@ -361,15 +343,15 @@ const NewGalleryCourseWise = () => {
                                         variant="contained"
                                         onClick={handleBackClick}
                                         sx={{
-                                            background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                                            color: '#000',
+                                            background: '#FFC800',
+                                            color: '#00382B',
                                             fontWeight: 700,
                                             borderRadius: '12px',
                                             px: 3,
                                             py: 1.5,
                                             textTransform: 'none',
                                             '&:hover': {
-                                                background: 'linear-gradient(135deg, #FFA500 0%, #FF8C00 100%)',
+                                                background: '#FFB300',
                                             }
                                         }}
                                     >
@@ -434,7 +416,7 @@ const NewGalleryCourseWise = () => {
                                             sx={{
                                                 height: '180px',
                                                 borderRadius: '16px',
-                                                background: 'rgba(255, 255, 255, 0.1)',
+                                                background: '#E8EDEA',
                                                 aspectRatio: '1/1',
                                             }}
                                         />
@@ -451,10 +433,9 @@ const NewGalleryCourseWise = () => {
                                                     height: '180px',
                                                     width: '100%',
                                                     borderRadius: '16px',
-                                                    background: 'rgba(255, 255, 255, 0.08)',
-                                                    backdropFilter: 'blur(25px)',
-                                                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                                                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+                                                    background: '#ffffff',
+                                                    border: '1px solid #e0e7e1',
+                                                    boxShadow: '0 8px 32px rgba(0, 56, 43, 0.08)',
                                                     transition: 'all 0.5s cubic-bezier(0.23, 1, 0.320, 1)',
                                                     cursor: 'pointer',
                                                     position: 'relative',
@@ -464,12 +445,12 @@ const NewGalleryCourseWise = () => {
                                                     aspectRatio: '1/1',
                                                     '&:hover': {
                                                         transform: 'translateY(-8px) scale(1.05)',
-                                                        boxShadow: '0 15px 40px rgba(255, 215, 0, 0.12), 0 0 20px rgba(255, 215, 0, 0.08)',
-                                                        background: 'rgba(255, 255, 255, 0.12)',
-                                                        border: '1px solid rgba(255, 215, 0, 0.2)',
+                                                        boxShadow: '0 15px 40px rgba(0, 56, 43, 0.14), 0 0 20px rgba(0, 56, 43, 0.06)',
+                                                        background: '#ffffff',
+                                                        border: '1px solid #FFC800',
                                                         '& .action-button': {
                                                             transform: 'translateY(-2px)',
-                                                            boxShadow: '0 8px 20px rgba(255, 215, 0, 0.3)',
+                                                            boxShadow: '0 8px 20px rgba(255, 200, 0, 0.35)',
                                                         },
                                                         '& .item-thumbnail': {
                                                             transform: 'scale(1.1) rotate(1deg)',
@@ -519,7 +500,7 @@ const NewGalleryCourseWise = () => {
                                                                 left: 0,
                                                                 right: 0,
                                                                 bottom: 0,
-                                                                background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(102,126,234,0.4) 100%)',
+                                                                background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0, 56, 43, 0.35) 100%)',
                                                             }}
                                                         />
 
@@ -531,7 +512,7 @@ const NewGalleryCourseWise = () => {
                                                                     top: '50%',
                                                                     left: '50%',
                                                                     transform: 'translate(-50%, -50%)',
-                                                                    background: 'rgba(255, 215, 0, 0.9)',
+                                                                    background: 'rgba(255, 200, 0, 0.9)',
                                                                     borderRadius: '50%',
                                                                     p: 1,
                                                                     display: 'flex',
@@ -568,7 +549,7 @@ const NewGalleryCourseWise = () => {
                                                         >
                                                             <Typography
                                                                 sx={{
-                                                                    color: '#FFD700',
+                                                                    color: '#FFC800',
                                                                     fontWeight: 700,
                                                                     fontSize: '0.8rem',
                                                                     letterSpacing: '0.5px',
@@ -583,7 +564,7 @@ const NewGalleryCourseWise = () => {
                                                         sx={{
                                                             width: '100%',
                                                             height: '100%',
-                                                            background: `linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 165, 0, 0.1) 100%)`,
+                                                            background: `linear-gradient(135deg, rgba(255, 200, 0, 0.14) 0%, rgba(0, 56, 43, 0.06) 100%)`,
                                                             display: 'flex',
                                                             alignItems: 'center',
                                                             justifyContent: 'center',
@@ -597,7 +578,7 @@ const NewGalleryCourseWise = () => {
                                                                 justifyContent: 'center',
                                                                 width: '50px',
                                                                 height: '50px',
-                                                                background: 'rgba(255, 215, 0, 0.2)',
+                                                                background: 'rgba(255, 200, 0, 0.25)',
                                                                 borderRadius: '12px',
                                                             }}
                                                         >
@@ -659,17 +640,16 @@ const NewGalleryCourseWise = () => {
                                 sx={{
                                     textAlign: 'center',
                                     py: 12,
-                                    background: 'rgba(255, 255, 255, 0.05)',
-                                    backdropFilter: 'blur(10px)',
+                                    background: '#F4F9F6',
                                     borderRadius: '20px',
-                                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                                    border: '1px solid #e0e7e1',
                                 }}
                             >
-                                <ScheduleIcon sx={{ fontSize: 80, color: 'rgba(255, 255, 255, 0.3)', mb: 3 }} />
+                                <ScheduleIcon sx={{ fontSize: 80, color: 'rgba(0, 56, 43, 0.25)', mb: 3 }} />
                                 <Typography
                                     variant="h4"
                                     sx={{
-                                        color: 'rgba(255, 255, 255, 0.7)',
+                                        color: '#17251f',
                                         fontWeight: 600,
                                         mb: 2
                                     }}
@@ -679,7 +659,7 @@ const NewGalleryCourseWise = () => {
                                 <Typography
                                     variant="body1"
                                     sx={{
-                                        color: 'rgba(255, 255, 255, 0.5)',
+                                        color: '#637068',
                                         maxWidth: '400px',
                                         mx: 'auto'
                                     }}
@@ -701,7 +681,7 @@ const NewGalleryCourseWise = () => {
                                             sx={{
                                                 height: 180,
                                                 borderRadius: '20px',
-                                                background: 'rgba(255, 255, 255, 0.1)',
+                                                background: '#E8EDEA',
                                             }}
                                         />
                                     </Grid2>
@@ -716,10 +696,9 @@ const NewGalleryCourseWise = () => {
                                                 sx={{
                                                     height: '100%',
                                                     borderRadius: '20px',
-                                                    background: 'rgba(255, 255, 255, 0.08)',
-                                                    backdropFilter: 'blur(25px)',
-                                                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                                                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+                                                    background: '#ffffff',
+                                                    border: '1px solid #e0e7e1',
+                                                    boxShadow: '0 8px 32px rgba(0, 56, 43, 0.08)',
                                                     transition: 'all 0.5s cubic-bezier(0.23, 1, 0.320, 1)',
                                                     cursor: 'pointer',
                                                     position: 'relative',
@@ -727,12 +706,12 @@ const NewGalleryCourseWise = () => {
                                                     flexDirection: 'column',
                                                     '&:hover': {
                                                         transform: 'translateY(-20px)',
-                                                        boxShadow: '0 30px 60px rgba(255, 215, 0, 0.15), 0 0 30px rgba(255, 215, 0, 0.1)',
-                                                        background: 'rgba(255, 255, 255, 0.12)',
-                                                        border: '1px solid rgba(255, 255, 255, 0.25)',
+                                                        boxShadow: '0 30px 60px rgba(0, 56, 43, 0.14), 0 0 30px rgba(0, 56, 43, 0.06)',
+                                                        background: '#ffffff',
+                                                        border: '1px solid #FFC800',
                                                         '& .action-button': {
                                                             transform: 'translateY(-3px) scale(1.02)',
-                                                            boxShadow: '0 12px 30px rgba(255, 215, 0, 0.3)',
+                                                            boxShadow: '0 12px 30px rgba(255, 200, 0, 0.35)',
                                                         },
                                                         '& .course-image': {
                                                             transform: 'scale(1.15) rotate(1deg)',
@@ -776,7 +755,7 @@ const NewGalleryCourseWise = () => {
                                                                 left: 0,
                                                                 right: 0,
                                                                 bottom: 0,
-                                                                background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(102,126,234,0.4) 100%)',
+                                                                background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0, 56, 43, 0.35) 100%)',
                                                             }}
                                                         />
                                                     </Box>
@@ -787,7 +766,7 @@ const NewGalleryCourseWise = () => {
                                                         <Typography
                                                             variant="h6"
                                                             sx={{
-                                                                color: '#fff',
+                                                                color: '#17251f',
                                                                 fontWeight: 800,
                                                                 mb: 2,
                                                                 lineHeight: 1.4,
@@ -807,8 +786,8 @@ const NewGalleryCourseWise = () => {
                                                         variant="contained"
                                                         className="action-button"
                                                         sx={{
-                                                            background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                                                            color: '#000',
+                                                            background: '#FFC800',
+                                                            color: '#00382B',
                                                             fontWeight: 800,
                                                             borderRadius: '12px',
                                                             px: 3,
@@ -818,10 +797,10 @@ const NewGalleryCourseWise = () => {
                                                             letterSpacing: '1px',
                                                             width: '100%',
                                                             transition: 'all 0.4s ease',
-                                                            boxShadow: '0 8px 20px rgba(255, 215, 0, 0.2)',
+                                                            boxShadow: '0 8px 20px rgba(255, 200, 0, 0.2)',
                                                             '&:hover': {
-                                                                background: 'linear-gradient(135deg, #FFB700 0%, #FF9500 100%)',
-                                                                boxShadow: '0 12px 30px rgba(255, 215, 0, 0.4)',
+                                                                background: '#FFB300',
+                                                                boxShadow: '0 12px 30px rgba(255, 200, 0, 0.4)',
                                                             }
                                                         }}
                                                         onClick={(e) => {
@@ -859,17 +838,16 @@ const NewGalleryCourseWise = () => {
                                 sx={{
                                     textAlign: 'center',
                                     py: 12,
-                                    background: 'rgba(255, 255, 255, 0.05)',
-                                    backdropFilter: 'blur(10px)',
+                                    background: '#F4F9F6',
                                     borderRadius: '20px',
-                                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                                    border: '1px solid #e0e7e1',
                                 }}
                             >
-                                <ScheduleIcon sx={{ fontSize: 80, color: 'rgba(255, 255, 255, 0.3)', mb: 3 }} />
+                                <ScheduleIcon sx={{ fontSize: 80, color: 'rgba(0, 56, 43, 0.25)', mb: 3 }} />
                                 <Typography
                                     variant="h4"
                                     sx={{
-                                        color: 'rgba(255, 255, 255, 0.7)',
+                                        color: '#17251f',
                                         fontWeight: 600,
                                         mb: 2
                                     }}
@@ -879,7 +857,7 @@ const NewGalleryCourseWise = () => {
                                 <Typography
                                     variant="body1"
                                     sx={{
-                                        color: 'rgba(255, 255, 255, 0.5)',
+                                        color: '#637068',
                                         maxWidth: '400px',
                                         mx: 'auto'
                                     }}
@@ -934,7 +912,7 @@ const NewGalleryCourseWise = () => {
                             transition: 'all 0.3s ease',
                             '&:hover': {
                                 transform: 'scale(1.1)',
-                                color: '#FFD700',
+                                color: '#FFC800',
                             },
                         }}
                     >
@@ -958,7 +936,7 @@ const NewGalleryCourseWise = () => {
                                 zIndex: 10000,
                                 transition: 'all 0.3s ease',
                                 '&:hover': {
-                                    color: '#FFD700',
+                                    color: '#FFC800',
                                     transform: 'translateY(-50%) scale(1.2)',
                                 }
                             }}
@@ -1005,7 +983,7 @@ const NewGalleryCourseWise = () => {
                                 zIndex: 10000,
                                 transition: 'all 0.3s ease',
                                 '&:hover': {
-                                    color: '#FFD700',
+                                    color: '#FFC800',
                                     transform: 'translateY(-50%) scale(1.2)',
                                 }
                             }}
@@ -1041,7 +1019,7 @@ const NewGalleryCourseWise = () => {
                                     background: 'transparent',
                                 },
                                 '&::-webkit-scrollbar-thumb': {
-                                    background: 'rgba(255, 215, 0, 0.5)',
+                                    background: 'rgba(255, 200, 0, 0.5)',
                                     borderRadius: '2px',
                                 },
                             }}
@@ -1067,10 +1045,10 @@ const NewGalleryCourseWise = () => {
                                             cursor: 'pointer',
                                             objectFit: 'cover',
                                             flexShrink: 0,
-                                            border: currentImageIndex === idx ? '3px solid #FFD700' : '2px solid rgba(255, 255, 255, 0.3)',
+                                            border: currentImageIndex === idx ? '3px solid #FFC800' : '2px solid rgba(255, 255, 255, 0.3)',
                                             transition: 'all 0.3s ease',
                                             '&:hover': {
-                                                borderColor: '#FFD700',
+                                                borderColor: '#FFC800',
                                                 transform: 'scale(1.05)',
                                             }
                                         }}

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import NavBarOne from '@/components/CommonSections/NavBarOne';
 import NavBarTwo from '@/components/CommonSections/NavBarTwo';
+import MinimalHeader from '@/components/CommonSections/MinimalHeader';
 // import ImagePopup from '@/components/CommonSections/ImagePopup';
 import { useMediaQuery } from '@mui/material';
 import Network from '@/lib/Netwrok';
@@ -14,6 +15,7 @@ export default function RootLayoutClient({ children }) {
   const isMobileQuery = useMediaQuery('(max-width:600px)');
   const pathname = usePathname();
   const isHomePage = pathname === '/';
+  const isMinimalHeaderPage = pathname === '/about' || pathname === '/ourTeam';
   const [mounted, setMounted] = useState(false);
   const [banner, setBanner] = useState([]);
 
@@ -43,9 +45,9 @@ export default function RootLayoutClient({ children }) {
   const isMobile = mounted ? isMobileQuery : false;
 
   return (
-    <div style={{ paddingTop: '90px' }}>
-      {/* NavBarOne - Fixed at top for entire scroll on desktop */}
-      {mounted && !isMobile && (
+    <div style={{ paddingTop: isMobile ? (isMinimalHeaderPage ? '78px' : '77px') : (isMinimalHeaderPage ? '90px' : '150px') }}>
+      {/* Header - Minimal on About / Our Team pages, full nav elsewhere */}
+      {mounted && (
         <div style={{
           position: 'fixed',
           top: 0,
@@ -55,12 +57,12 @@ export default function RootLayoutClient({ children }) {
           width: '100%',
           background: '#fff'
         }}>
-          <NavBarOne />
+          {isMinimalHeaderPage ? <MinimalHeader /> : <NavBarOne />}
         </div>
       )}
 
       {/* NavBarTwo - Fixed at top for entire scroll on mobile, normal on desktop */}
-      <div style={mounted && isMobile ? {
+      {/* <div style={mounted && isMobile ? {
         position: 'fixed',
         top: 0,
         left: 0,
@@ -71,7 +73,7 @@ export default function RootLayoutClient({ children }) {
         boxShadow: '0 2px 10px rgba(0,0,0,0.08)'
       } : {}}>
         <NavBarTwo />
-      </div>
+      </div> */}
 
       {/* Main content */}
       {children}

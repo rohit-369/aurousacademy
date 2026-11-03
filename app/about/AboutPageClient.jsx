@@ -2,7 +2,6 @@
 
 import React, { useEffect } from 'react';
 import AboutSection1 from '@/components/AboutComponent/AboutSection1';
-import AboutSection2 from '@/components/AboutComponent/AboutSection2';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 import { Fab, Tooltip, useMediaQuery } from '@mui/material';
@@ -29,21 +28,20 @@ export default function AboutPageClient() {
 
   const handleWhatsapp = (event) => {
     event.preventDefault();
-    const phoneNumber = '+919993936947';
+    const phoneNumber = '+919685099770';
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=Hey,+${encodedMessage}+%21&type=phone_number&app_absent=0`;
     window.open(whatsappURL, '_blank');
   };
 
   const handleRedirectToCall = () => {
-    window.location.href = 'tel:+919993936947';
+    window.location.href = 'tel:+919522512624';
   };
 
   return (
     <div id="homePageCss">
       <div>
         <AboutSection1 />
-        <AboutSection2 />
         <Tooltip title="Call Us Now" placement="top-start">
           <Fab
             onClick={handleRedirectToCall}

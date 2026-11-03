@@ -28,6 +28,20 @@ const getExamName = (item) =>
 const getAirRank = (item) =>
   stripHtml(item?.airRank || item?.air || item?.rank || '');
 
+const sanitizeHtml = (html) => {
+  if (typeof html !== 'string') return html || '';
+  let out = html
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<title[\s\S]*?<\/title>/gi, '')
+    .replace(/<link[^>]*>/gi, '')
+    .replace(/<meta[^>]*>/gi, '')
+    .replace(/<base[^>]*>/gi, '');
+  const firstTag = out.indexOf('<');
+  if (firstTag > 0) out = out.slice(firstTag);
+  return out.trim();
+};
+
 const LEVEL1_ORDER = ['IIT-JEE', 'NEET-UG', 'FOUNDATION & BOARDS', 'FOUNDATION'];
 
 const sortLevel1 = (list) => {
@@ -81,7 +95,11 @@ const VerifiedStudentsResultSection = () => {
       setLoading(true);
       setError('');
       const response = await Network.fetchScheduleApi(courseId, 0);
-      const list = (response?.contentList || []).filter((item) => item?.active !== false);
+      const list = (response?.contentList || []).filter(
+        (item) =>
+          item?.active !== false &&
+          getCleanTitle(item).toLowerCase() !== 'student testimonials'
+      );
       const sorted = sortLevel1(list);
       setLevel1(sorted);
       setLevel2([]);
@@ -158,7 +176,7 @@ const VerifiedStudentsResultSection = () => {
 
   return (
     <section className="bg-slate-100/70 px-4 py-12 sm:px-6 lg:px-8" id="results">
-      <div className="relative mx-auto max-w-7xl rounded-3xl border border-emerald-900/10 bg-[#F4F9F6] p-6 shadow-sm sm:p-10">
+      <div className="relative mx-auto max-w-[92rem] rounded-3xl border border-emerald-900/10 bg-[#F4F9F6] p-6 shadow-sm sm:p-10">
         {/* Top Header & View All CTA */}
         <div className="relative mb-6 flex flex-col items-center gap-4 text-center sm:block sm:text-center">
           <div>
@@ -241,7 +259,7 @@ const VerifiedStudentsResultSection = () => {
               return (
                 <div
                   key={item.id}
-                  className="result-card animate-card-entry group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition hover:-translate-y-1.5 hover:border-emerald-700/30 hover:shadow-xl"
+                  className="aurous-result-card animate-card-entry group relative flex items-center gap-4 rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition hover:-translate-y-1.5 hover:border-emerald-700/30 hover:shadow-xl"
                 >
                   <div className="absolute bottom-0 left-0 top-0 w-1.5 bg-aurous-yellow opacity-0 transition-opacity group-hover:opacity-100"></div>
 
@@ -258,18 +276,18 @@ const VerifiedStudentsResultSection = () => {
                       )}
                     </div>
 
-                    <div className="absolute -bottom-2 -right-2 flex items-center gap-1 rounded-lg bg-aurous-darkGreen px-2 py-1 shadow-md">
+                    {/* <div className="absolute -bottom-2 -right-2 flex items-center gap-1 rounded-lg bg-aurous-darkGreen px-2 py-1 shadow-md">
                       <span className="text-[11px] leading-none text-aurous-yellow">★</span>
                       <span className="text-[10px] font-bold leading-none text-white">Top</span>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="min-w-0 flex-1">
                     <h4
-                      className="truncate text-sm font-extrabold leading-snug text-aurous-darkGreen"
-                      dangerouslySetInnerHTML={{ __html: title || 'Untitled Image' }}
+                      className=""
+                      dangerouslySetInnerHTML={{ __html: sanitizeHtml(title) || 'Untitled Image' }}
                     />
-                    {percentile && (
+                    {/* {percentile && (
                       <p className="mt-0.5 truncate text-[13px] font-extrabold leading-snug text-aurous-darkGreen">
                         {percentile}
                       </p>
@@ -283,7 +301,7 @@ const VerifiedStudentsResultSection = () => {
                       <span className="mt-1.5 inline-flex items-center rounded-lg bg-emerald-100 px-2.5 py-1 text-xs font-bold text-aurous-darkGreen">
                         {airRank}
                       </span>
-                    )}
+                    )} */}
                   </div>
                 </div>
               );
@@ -318,7 +336,47 @@ const VerifiedStudentsResultSection = () => {
 
       <style>{`
         .tab-btn { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
-        .result-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .aurous-result-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .aurous-result-card .result-card {
+          width: 100%;
+          padding: 0;
+          border: 0;
+          border-radius: 0;
+          background: transparent;
+          box-shadow: none;
+        }
+        .aurous-result-card .student-name {
+          margin: 0 0 4px;
+          color: #111827;
+          font-size: 15px;
+          font-weight: 700;
+          line-height: 1.3;
+        }
+        .aurous-result-card .percentile {
+          margin: 0 0 4px;
+          color: #004d40;
+          font-size: 17px;
+          font-weight: 700;
+          line-height: 1.3;
+        }
+        .aurous-result-card .exam {
+          margin: 0 0 7px;
+          color: #6b7280;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 1.3;
+        }
+        .aurous-result-card .rank {
+          display: inline-block;
+          padding: 3px 7px;
+          border: 1px solid #a7e8cf;
+          border-radius: 4px;
+          background: #effcf6;
+          color: #087f5b;
+          font-size: 10px;
+          font-weight: 600;
+          line-height: 1.2;
+        }
         @keyframes cardFadeIn {
           from { opacity: 0; transform: translateY(16px) scale(0.97); }
           to { opacity: 1; transform: translateY(0) scale(1); }

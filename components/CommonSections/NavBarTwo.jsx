@@ -1375,7 +1375,7 @@ const NavBarTwo = () => {
                             }
                         }}
                         onClick={() => {
-                            window.location.href = 'tel:+919993936947';
+                            window.location.href = 'tel:+919522512624';
                         }}
                     >
                         <CallOutlinedIcon

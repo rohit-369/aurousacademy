@@ -83,11 +83,11 @@ const HomeBannerSlider = () => {
 
   return (
     <section
-      className="group relative w-full overflow-hidden bg-slate-950"
+      className="group relative w-full overflow-hidden bg-slate-100"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="w-full h-[150px] md:h-[620px] overflow-hidden">
+      <div className="w-full h-[150px] md:h-[420px] overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -95,7 +95,7 @@ const HomeBannerSlider = () => {
           {banners.map((img, index) => (
             <div
               key={index}
-              className="relative w-full flex-shrink-0 h-[150px] md:h-[620px] overflow-hidden bg-slate-950"
+              className="relative w-full flex-shrink-0 h-[150px] md:h-[420px] overflow-hidden bg-slate-950"
             >
               <img
                 src={`${Endpoints?.mediaBaseUrl}${img?.banner}`}
@@ -132,7 +132,7 @@ const HomeBannerSlider = () => {
           </button>
 
           {/* Slide indicators */}
-          <div className="absolute bottom-3 left-1/2 z-30 flex -translate-x-1/2 items-center gap-2">
+          <div className="hidden md:flex items-center justify-center gap-2 py-3">
             {banners.map((_, index) => (
               <button
                 key={index}
@@ -142,7 +142,7 @@ const HomeBannerSlider = () => {
                 className={
                   index === currentIndex
                     ? 'h-2.5 w-6 rounded-full bg-aurous-yellow transition-all duration-300'
-                    : 'h-2.5 w-2.5 rounded-full bg-white/40 transition-all duration-300 hover:bg-white/70'
+                    : 'h-2.5 w-2.5 rounded-full bg-slate-300 transition-all duration-300 hover:bg-slate-400'
                 }
               />
             ))}

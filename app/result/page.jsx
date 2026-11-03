@@ -1,5 +1,5 @@
-import ResultPageClient from './ResultPageClient';
 import { generatePageMetadata } from '@/lib/seoUtils';
+import ResultPageClient from './ResultPageClient';
 
 export const metadata = generatePageMetadata({
   title: 'Results | Aurous Academy - Success Stories of IIT-JEE & NEET Qualifiers',

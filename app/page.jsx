@@ -14,6 +14,7 @@ import HomepageSeoSections from '@/components/SEO/HomepageSeoSections';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 import instId from '@/constant/instId';
+import VerifiedStudentsResultSection from '@/components/CommonSections/VerifiedStudentsResultSection';
 
 const HomeSection5 = dynamic(() => import('@/components/HomeComponents/HomeSection5'));
 const HomeSection6 = dynamic(() => import('@/components/HomeComponents/HomeSection6'));
@@ -44,14 +45,14 @@ export default function HomePage() {
 
   const handleWhatsapp = (event) => {
     event.preventDefault();
-    const phoneNumber = '+919522512624';
+    const phoneNumber = '+919685099770';
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=Hey,+${encodedMessage}+%21&type=phone_number&app_absent=0`;
     window.open(whatsappURL, '_blank');
   };
 
   const handleRedirectToCall = () => {
-    window.location.href = 'tel:+919993936947';
+    window.location.href = 'tel:+919522512624';
   };
 
   useEffect(() => {
@@ -80,17 +81,18 @@ export default function HomePage() {
           Best IIT JEE and NEET Coaching Institute in Bhopal
         </h1>
         <HomeSection1 />
+        <VerifiedStudentsResultSection />
         <div ref={homeSection2Ref}>
           <HomeSection3 />
         </div>
-        <HomeSection2 />
-        {/* <WhyChoosHomeSection /> */}
-        <HomeSection4 />
+        {/* <HomeSection2 /> */}
+        <WhyChoosHomeSection />
+        {/* <HomeSection4 /> */}
+        <HomeLocationMap />
         <HomeSection6 />
         {/* <HomepageSeoSections /> */}
-        <HomeLocationMap />
-        <HomeSection5 />
-        {/* <FAQHomeSection /> */}
+        {/* <HomeSection5 /> */}
+        <FAQHomeSection />
 
         <Tooltip title="Call Us Now" placement="top-start">
           <Fab

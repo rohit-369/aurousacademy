@@ -88,7 +88,7 @@ const TimeTableSection1 = () => {
 
             await Promise.all(
                 coursesList.map(async (course) => {
-                    const response = await Network.fetchCheduleApi(course.id, 0);
+                    const response = await Network.fetchScheduleApi(course.id, 0);
                     if (response?.contentList) {
                         const activeSchedules = response.contentList.filter(item => item.active === true);
                         allSchedules = [...allSchedules, ...activeSchedules];
@@ -118,11 +118,11 @@ const TimeTableSection1 = () => {
     const getItemIcon = (entityType) => {
         switch (entityType) {
             case 'video':
-                return <PlayCircleOutlineIcon sx={{ color: '#FFD700' }} />;
+                return <PlayCircleOutlineIcon sx={{ color: '#FFC800' }} />;
             case 'note':
-                return <ArticleIcon sx={{ color: '#FFD700' }} />;
+                return <ArticleIcon sx={{ color: '#FFC800' }} />;
             default:
-                return <ScheduleIcon sx={{ color: '#FFD700' }} />;
+                return <ScheduleIcon sx={{ color: '#FFC800' }} />;
         }
     };
 
@@ -141,7 +141,7 @@ const TimeTableSection1 = () => {
         <Box
             sx={{
                 minHeight: '100vh',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                // background: 'linear-gradient(135deg, #00382B 0%, #00523F 50%, #00382B 100%)',
                 position: 'relative',
                 overflow: 'hidden',
                 '&::before': {
@@ -151,11 +151,11 @@ const TimeTableSection1 = () => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: `
-                        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 177, 153, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%)
-                    `,
+                    // background: `
+                    //     radial-gradient(circle at 20% 80%, rgba(5, 150, 105, 0.28) 0%, transparent 50%),
+                    //     radial-gradient(circle at 80% 20%, rgba(255, 200, 0, 0.18) 0%, transparent 50%),
+                    //     radial-gradient(circle at 40% 40%, rgba(5, 150, 105, 0.18) 0%, transparent 50%)
+                    // `,
                     zIndex: 1,
                 },
             }}
@@ -175,16 +175,15 @@ const TimeTableSection1 = () => {
                         sx={{
                             display: 'inline-flex',
                             alignItems: 'center',
-                            background: 'rgba(255, 255, 255, 0.1)',
-                            backdropFilter: 'blur(10px)',
-                            border: '1px solid rgba(255, 255, 255, 0.2)',
+                            background: 'rgb(0 56 43 / var(--tw-bg-opacity, 1))',
+                            border: '1px solid rgba(0, 0, 0, 0.08)',
                             borderRadius: '50px',
                             px: 3,
                             py: 1,
                             mb: 4,
                         }}
                     >
-                        <CalendarTodayIcon sx={{ color: '#FFD700', mr: 1 }} />
+                        <CalendarTodayIcon sx={{ color: '#fff', mr: 1 }} />
                         <Typography
                             variant="body2"
                             sx={{
@@ -201,13 +200,14 @@ const TimeTableSection1 = () => {
                         variant="h1"
                         sx={{
                             fontWeight: 700,
-                            background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                            backgroundClip: 'text',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
+                            // background: 'linear-gradient(135deg, #FFC800 0%, #FFD54F 100%)',
+                            // backgroundClip: 'text',
+                            // WebkitBackgroundClip: 'text',
+                            // WebkitTextFillColor: 'transparent',
                             mb: 3,
                             fontSize: { xs: '2.5rem', md: '4rem' },
                             lineHeight: 1.2,
+                            color: '#000',
                         }}
                     >
                         Timetable
@@ -216,7 +216,7 @@ const TimeTableSection1 = () => {
                     <Typography
                         variant="h6"
                         sx={{
-                            color: 'rgba(255, 255, 255, 0.8)',
+                            color: '#000',
                             maxWidth: '600px',
                             mx: 'auto',
                             lineHeight: 1.6,
@@ -252,7 +252,7 @@ const TimeTableSection1 = () => {
                                         sx={{
                                             height: '100%',
                                             borderRadius: '20px',
-                                            background: 'rgba(255, 255, 255, 0.1)',
+                                           background: 'linear-gradient(135deg, #00382B 0%, #00523F 50%, #00382B 100%)',
                                             backdropFilter: 'blur(20px)',
                                             border: '1px solid rgba(255, 255, 255, 0.2)',
                                             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
@@ -263,7 +263,7 @@ const TimeTableSection1 = () => {
                                                 boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
                                                 '& .action-button': {
                                                     transform: 'scale(1.05)',
-                                                    boxShadow: '0 6px 20px rgba(255, 215, 0, 0.4)',
+                                                    boxShadow: '0 6px 20px rgba(255, 200, 0, 0.4)',
                                                 }
                                             }
                                         }}
@@ -273,13 +273,14 @@ const TimeTableSection1 = () => {
                                             <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 3 }}>
                                                 <Box
                                                     sx={{
-                                                        background: 'rgba(255, 215, 0, 0.2)',
+                                                        background: 'rgba(255, 200, 0, 0.22)',
                                                         borderRadius: '12px',
                                                         p: 2,
                                                         mr: 3,
                                                         display: 'flex',
                                                         alignItems: 'center',
                                                         justifyContent: 'center',
+                                                        color: '#fff',
                                                     }}
                                                 >
                                                     {getItemIcon(item?.entityType)}
@@ -321,8 +322,8 @@ const TimeTableSection1 = () => {
                                                 className="action-button"
                                                 endIcon={<LaunchIcon />}
                                                 sx={{
-                                                    background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                                                    color: '#000',
+                                                    background: 'linear-gradient(135deg, #FFC800 0%, #FFB300 100%)',
+                                                    color: '#00382B',
                                                     fontWeight: 700,
                                                     borderRadius: '12px',
                                                     px: 3,
@@ -332,7 +333,7 @@ const TimeTableSection1 = () => {
                                                     width: '100%',
                                                     transition: 'all 0.3s ease',
                                                     '&:hover': {
-                                                        background: 'linear-gradient(135deg, #FFA500 0%, #FF8C00 100%)',
+                                                        background: 'linear-gradient(135deg, #FFB300 0%, #FFC800 100%)',
                                                     }
                                                 }}
                                                 onClick={(e) => {

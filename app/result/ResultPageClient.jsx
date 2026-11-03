@@ -11,7 +11,7 @@ import instId from '@/constant/instId';
 export default function ResultPageClient() {
   // const instId = 120;
   const isMobile = useMediaQuery('(min-width:600px)');
-  const [message, setMessage] = React.useState('Aurous Academy');
+  const [message, setMessage] = React.useState('Aurous Academy'); 
 
   const getInstituteDetail = async () => {
     try {
@@ -28,14 +28,14 @@ export default function ResultPageClient() {
 
   const handleWhatsapp = (event) => {
     event.preventDefault();
-    const phoneNumber = '+919993936947';
+    const phoneNumber = '+919685099770';
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=Hey,+${encodedMessage}+%21&type=phone_number&app_absent=0`;
     window.open(whatsappURL, '_blank');
   };
 
   const handleRedirectToCall = () => {
-    window.location.href = 'tel:+919993936947';
+    window.location.href = 'tel:+919522512624';
   };
 
   return (

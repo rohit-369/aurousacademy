@@ -178,20 +178,20 @@ const VerifiedStudentsResultSection = () => {
     <section className="bg-slate-100/70 px-4 py-12 sm:px-6 lg:px-8" id="results">
       <div className="relative mx-auto max-w-[92rem] rounded-3xl border border-emerald-900/10 bg-[#F4F9F6] p-6 shadow-sm sm:p-10">
         {/* Top Header & View All CTA */}
-        <div className="relative mb-6 flex flex-col items-center gap-4 text-center sm:block sm:text-center">
-          <div>
+        <div className="mb-6 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+          <div className="flex flex-col items-center gap-2 sm:items-start">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100/80 px-3 py-1 text-[11px] font-black uppercase tracking-widest text-emerald-800">
               <span className="h-2 w-2 rounded-full bg-emerald-600 animate-ping"></span>
               Verified Results 2026
             </span>
-            <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+            <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
               Real Students. Published Outcomes.
             </h2>
           </div>
 
           <Link
             href="#"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-aurous-darkGreen px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-950/10 transition hover:scale-105 hover:bg-[#00523F] sm:absolute sm:right-0 sm:top-1/2 sm:-translate-y-1/2 sm:text-sm"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-aurous-darkGreen px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-950/10 transition hover:scale-105 hover:bg-[#00523F] sm:text-sm"
           >
             <span>View All Results</span>
             <svg className="h-4 w-4 text-aurous-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -209,7 +209,7 @@ const VerifiedStudentsResultSection = () => {
                   type="button"
                   onClick={() => handleLevel1Click(item)}
                   disabled={loading}
-                  className={`tab-btn rounded-md px-8 py-4 text-xs font-extrabold transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 sm:text-lg ${
+                  className={`tab-btn rounded-md px-4 py-3 text-xs font-extrabold transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 sm:px-6 sm:text-base lg:text-lg ${
                     active
                       ? 'bg-aurous-darkGreen text-white shadow-sm'
                       : 'border border-slate-200/80 bg-white font-bold text-slate-700 hover:bg-slate-200/80'
@@ -233,7 +233,7 @@ const VerifiedStudentsResultSection = () => {
                   type="button"
                   onClick={() => handleLevel2Click(item)}
                   disabled={loading}
-                  className={`tab-btn rounded-lg px-8 py-4 text-xs font-bold transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 sm:text-lg ${
+                  className={`tab-btn rounded-lg px-4 py-3 text-xs font-bold transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 sm:px-6 sm:text-base lg:text-lg ${
                     active
                       ? 'bg-aurous-darkGreen text-white shadow-sm'
                       : 'border border-slate-200/80 bg-white text-slate-700 hover:bg-slate-200/80'
@@ -248,7 +248,7 @@ const VerifiedStudentsResultSection = () => {
 
         {/* LEVEL 3 cards (final content of the selected level-2 item) */}
         {level3.length > 0 && (
-          <div className="grid min-h-[160px] grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+          <div className="grid min-h-[160px] grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
             {level3.map((item) => {
               const mediaUrl = getMediaUrl(item);
               const title = item?.title || item?.name || 'Untitled Image';

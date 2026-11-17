@@ -319,7 +319,7 @@ const ResultSection2 = () => {
                                                     width: '90%',
                                                     maxWidth: '1000px',
                                                     height: 'auto',
-                                                    maxHeight: '480px',
+                                                    // maxHeight: '480px',
                                                     // objectFit: 'contain',
                                                     display: 'block',
                                                     margin: '0 auto',

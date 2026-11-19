@@ -127,7 +127,7 @@ const NavBarOne = () => {
     return (
         <>
             <header className={`w-full bg-white border-b sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'border-rose-200 shadow-md' : 'border-slate-200 shadow-sm'}`}>
-                <div className="max-w-[92rem] mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* LINE 1: Logo + Action Buttons */}
                     <div className="flex items-center justify-between py-3.5">

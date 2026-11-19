@@ -38,7 +38,7 @@ const features = [
 const WhyChoosHomeSection = () => {
   return (
     <section className="bg-slate-50 px-4 py-12 sm:px-6 lg:px-8" id="why-aurous">
-      <div className="mx-auto max-w-[92rem]">
+      <div className="mx-auto max-w-[85rem]">
         <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm sm:p-10">
           {/* Header */}
           <div className="mx-auto mb-10 max-w-2xl text-center">

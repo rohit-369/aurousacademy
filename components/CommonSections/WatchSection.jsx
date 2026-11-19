@@ -63,11 +63,12 @@ const StudentStoriesSection = () => {
       setLoading(true);
       setError('');
       const response = await Network.fetchCourses(instId.instId);
+      console.log('target response', response);
       const courses = response?.courses || [];
       const target = courses.find(
         (c) =>
-          (c?.name || c?.title || '').trim().toLowerCase() ===
-            'verified results 2026'
+          (c?.name || c?.title || '').trim().toUpperCase() ===
+            'VERIFIED RESULTS 2026'
       );
       setCourse(target || null);
     } catch (err) {
@@ -93,6 +94,7 @@ const StudentStoriesSection = () => {
           (item?.title || item?.name || '').trim().toLowerCase() ===
           'student testimonials'
       );
+      console.log('folders', list);
       // const sorted = sortLevel1(list);
       setLevel1(list);
       // setLevel2([]);
@@ -167,7 +169,7 @@ const StudentStoriesSection = () => {
   return (
     <section className="bg-slate-50 px-4 py-10 sm:px-6 lg:px-8" id="student-stories">
       <div
-        className="mx-auto max-w-[92rem] rounded-3xl border border-emerald-900/10 p-6 shadow-sm sm:p-10"
+        className="mx-auto max-w-[85rem] rounded-3xl border border-emerald-900/10 p-6 shadow-sm sm:p-10"
         style={{
           background: 'linear-gradient(115deg, #f6fbfc, #f0f9fb)',
         }}

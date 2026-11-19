@@ -176,7 +176,7 @@ const VerifiedStudentsResultSection = () => {
 
   return (
     <section className="bg-slate-100/70 px-4 py-12 sm:px-6 lg:px-8" id="results">
-      <div className="relative mx-auto max-w-[92rem] rounded-3xl border border-emerald-900/10 bg-[#F4F9F6] p-6 shadow-sm sm:p-10">
+      <div className="relative mx-auto max-w-[85rem] rounded-3xl border border-emerald-900/10 bg-[#F4F9F6] p-6 shadow-sm sm:p-10">
         {/* Top Header & View All CTA */}
         <div className="mb-6 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
           <div className="flex flex-col items-center gap-2 sm:items-start">
@@ -269,7 +269,7 @@ const VerifiedStudentsResultSection = () => {
                         <img
                           src={mediaUrl}
                           alt={altText}
-                          className="h-[18vh] w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center text-3xl text-emerald-200">★</div>

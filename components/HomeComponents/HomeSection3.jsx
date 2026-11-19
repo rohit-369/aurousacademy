@@ -4,7 +4,7 @@ import Link from 'next/link';
 const HomeSection3 = () => {
     return (
         <section className="overflow-hidden bg-slate-50 px-1 py-12 sm:px-6 lg:px-8" id="courses">
-            <div className="relative mx-auto max-w-[92rem] rounded-3xl border border-emerald-900/10 bg-[#F4F9F6]/80 px-3 py-6 shadow-sm sm:p-10">
+            <div className="relative mx-auto max-w-[85rem] rounded-3xl border border-emerald-900/10 bg-[#F4F9F6]/80 px-3 py-6 shadow-sm sm:p-10">
                 {/* Section Header */}
                 <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
                     <div>

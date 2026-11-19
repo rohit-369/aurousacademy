@@ -31,7 +31,7 @@ const COLORS = {
 };
 
 const WRAP_SX = {
-  maxWidth: 1440,
+  maxWidth: '90rem',
   margin: '0 auto',
   padding: '0 36px',
   '@media (max-width: 1100px)': { padding: '0 24px' },

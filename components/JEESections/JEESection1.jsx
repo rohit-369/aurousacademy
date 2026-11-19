@@ -101,7 +101,7 @@ const programs = [
 ];
 
 const wrapStyles = {
-    maxWidth: 1554,
+    maxWidth: '90rem',
     margin: 'auto',
     padding: { xs: '0 16px', md: '0 24px', lg: '0 36px' },
 };

@@ -13,10 +13,10 @@ const INK = '#17251f';
 const MUTED = '#647169';
 
 const campuses = [
-  { id: 'campus-1', title: 'Campus 1', location: 'Bhopal, Madhya Pradesh', query: 'Aurous+Academy+Campus+1+Bhopal' },
-  { id: 'campus-2', title: 'Campus 2', location: 'Bhopal, Madhya Pradesh', query: 'Aurous+Academy+Campus+2+Bhopal' },
-  { id: 'campus-3', title: 'Campus 3', location: 'Bhopal, Madhya Pradesh', query: 'Aurous+Academy+Campus+3+Bhopal' },
-  { id: 'campus-4', title: 'Lalghati Campus', location: 'Lalghati, Bhopal', query: 'Aurous+Academy+Lalghati+Campus+Bhopal' },
+  { id: 'campus-1', image: '/campus1.jpeg', title: 'Campus 1', location: 'Bhopal, Madhya Pradesh', query: 'https://share.google/IlIqCI8C8YrZYK5Lx' },
+  { id: 'campus-2', image: '/campus2.jpeg', title: 'Campus 2', location: 'Bhopal, Madhya Pradesh', query: 'https://share.google/0ws2ZJpEtt0uZ2Ubd' },
+  { id: 'campus-3', image: '/campus3.jpeg', title: 'Campus 3', location: 'Bhopal, Madhya Pradesh', query: 'Aurous+Academy+Campus+3+Bhopal' },
+  { id: 'campus-4', image: '/campus4.jpeg', title: 'Lalghati Campus', location: 'Lalghati, Bhopal', query: 'https://maps.app.goo.gl/EmEL8iHgKXbwegRa6?g_st=awb' },
 ];
 
 const placeholderGradients = [
@@ -308,10 +308,11 @@ const ContactPageSection = () => {
                 >
                   AUROUS ACADEMY
                 </Box>
-                <ApartmentOutlinedIcon sx={{ width: { xs: '59px', md: '76px' }, height: { xs: '59px', md: '76px' }, strokeWidth: 1 }} />
+                {/* <ApartmentOutlinedIcon sx={{ width: { xs: '59px', md: '76px' }, height: { xs: '59px', md: '76px' }, strokeWidth: 1 }} />
                 <Box component="span" sx={{ fontSize: { xs: '7px', md: '8px' }, letterSpacing: '1px', color: '#749582' }}>
                   CAMPUS PHOTOGRAPH
-                </Box>
+                </Box> */}
+                <img src={c.image} alt={`Image of ${c.title}`} style={{ maxWidth: '100%', maxHeight: '100%' }} />
               </Box>
 
               <Typography
@@ -343,7 +344,7 @@ const ContactPageSection = () => {
 
               <Box
                 component="a"
-                href={`https://www.google.com/maps/search/?api=1&query=${c.query}`}
+                href={`${c.query}`}
                 target="_blank"
                 rel="noopener"
                 aria-label={`Find ${c.title} on Google Maps`}

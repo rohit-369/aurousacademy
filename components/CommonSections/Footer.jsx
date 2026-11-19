@@ -6,7 +6,7 @@ import { SOCIAL_URLS } from '@/lib/site';
 const Footer = () => {
   return (
     <footer className="mt-0 w-full rounded-t-3xl border-t border-emerald-900 bg-aurous-darkGreen pb-8 pt-6 text-white">
-      <div className="mx-auto max-w-[92rem] space-y-6 px-4 sm:px-4 lg:px-4">
+      <div className="mx-auto max-w-[85rem] space-y-6 px-4 sm:px-4 lg:px-4">
         {/* Main Grid */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12 border-b pb-2 border-emerald-900/90">
           {/* Col 2: About Us */}

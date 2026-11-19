@@ -37,7 +37,7 @@ const FAQHomeSection = () => {
     return (
         <>
             <section className="bg-slate-50 px-4 py-6 sm:px-6 lg:px-8" id="resources-faq">
-                <div className="mx-auto grid max-w-[92rem] grid-cols-1 gap-6 lg:grid-cols-12">
+                <div className="mx-auto grid max-w-[85rem] grid-cols-1 gap-6 lg:grid-cols-12">
                     {/* Left Block: Explore Resources */}
                     <div
                         className="flex flex-col justify-between rounded-3xl border border-emerald-900/10 p-6 shadow-sm sm:p-8 lg:col-span-8"

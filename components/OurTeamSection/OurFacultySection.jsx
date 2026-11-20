@@ -121,6 +121,7 @@ const OurFacultySection = () => {
         subject: emp?.group || 'Faculty',
         name: [emp?.firstName, emp?.lastName].filter(Boolean).join(' ') || 'Faculty Name',
         qualification: emp?.designation || 'Faculty Member',
+        profile: emp?.profile || null,
     }));
 
     const filtered = faculty.filter(
@@ -304,39 +305,32 @@ const OurFacultySection = () => {
                                 {/* Portrait */}
                                 <Box
                                     sx={{
-                                        height: { xs: '185px', md: '230px' },
+                                        height: { xs: '230px', md: '300px' },
                                         background: '#edf3ef',
                                         position: 'relative',
                                         overflow: 'hidden',
                                         display: 'flex',
                                         alignItems: 'flex-end',
                                         justifyContent: 'center',
-                                        '&::before': {
-                                            content: '""',
-                                            position: 'absolute',
-                                            width: '180px',
-                                            height: '180px',
-                                            border: '1px solid #d7e3da',
-                                            borderRadius: '50%',
-                                            top: '22px',
-                                        },
                                     }}
                                 >
                                     <Box component="span" sx={{ position: 'absolute', top: '13px', left: '13px', fontSize: '9px', letterSpacing: '1px', fontWeight: 800, color: DARK_GREEN }}>
                                         AUROUS ACADEMY
                                     </Box>
                                     {
-                                        f.profile !== null ? <FacultyPortrait /> :
+                                        f.profile ? (
                                             <img
-                                                alt=''
+                                                alt={f.name}
                                                 src={Endpoints.mediaBaseUrl + f.profile}
+                                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                             />
-                                    }
-                                    {
-                                        f.profile !== null && (
-                                            <Box component="span" sx={{ position: 'absolute', bottom: '12px', left: '12px', background: 'rgba(255,255,255,0.87)', padding: '4px 8px', borderRadius: '3px', fontSize: '9px', color: '#71867a' }}>
-                                                PHOTO PLACEHOLDER
-                                            </Box>
+                                        ) : (
+                                            <>
+                                                <FacultyPortrait />
+                                                <Box component="span" sx={{ position: 'absolute', bottom: '12px', left: '12px', background: 'rgba(255,255,255,0.87)', padding: '4px 8px', borderRadius: '3px', fontSize: '9px', color: '#71867a' }}>
+                                                    PHOTO PLACEHOLDER
+                                                </Box>
+                                            </>
                                         )
                                     }
                                 </Box>

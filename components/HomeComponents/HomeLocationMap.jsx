@@ -16,11 +16,11 @@ const HomeLocationMap = () => {
       <div className="mx-auto max-w-[85rem]">
         <div className="grid grid-cols-1 overflow-hidden rounded-3xl border border-emerald-900/40 bg-aurous-darkGreen text-white shadow-xl lg:grid-cols-12">
           {/* Campus Image */}
-          <div className="group relative min-h-[550px] overflow-hidden lg:col-span-5 lg:min-h-[380px] lg:w-[70%]">
+          <div className="group relative aspect-[4/5] w-full overflow-hidden md:aspect-[16/10] lg:col-span-5 lg:aspect-auto lg:min-h-[420px] lg:w-[70%]">
             <img
               src="/building.png"
               alt="Aurous Academy Campus"
-              className="absolute inset-0 lg:h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-aurous-darkGreen"></div>
 

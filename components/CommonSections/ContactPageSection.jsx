@@ -15,7 +15,7 @@ const MUTED = '#647169';
 const campuses = [
   { id: 'campus-1', image: '/campus1.jpeg', title: 'Campus 1', location: 'Bhopal, Madhya Pradesh', query: 'https://share.google/IlIqCI8C8YrZYK5Lx' },
   { id: 'campus-2', image: '/campus2.jpeg', title: 'Campus 2', location: 'Bhopal, Madhya Pradesh', query: 'https://share.google/0ws2ZJpEtt0uZ2Ubd' },
-  { id: 'campus-3', image: '/campus3.jpeg', title: 'Campus 3', location: 'Bhopal, Madhya Pradesh', query: 'Aurous+Academy+Campus+3+Bhopal' },
+  { id: 'campus-3', image: '/campus3.jpeg', title: 'Campus 3', location: 'Bhopal, Madhya Pradesh', query: 'https://share.google/JHFlQ9DVVYaOUzaZl' },
   { id: 'campus-4', image: '/campus4.jpeg', title: 'Lalghati Campus', location: 'Lalghati, Bhopal', query: 'https://maps.app.goo.gl/EmEL8iHgKXbwegRa6?g_st=awb' },
 ];
 

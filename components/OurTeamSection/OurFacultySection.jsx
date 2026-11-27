@@ -120,7 +120,7 @@ const OurFacultySection = () => {
     const faculty = employees.map((emp) => ({
         subject: emp?.group || 'Faculty',
         name: [emp?.firstName, emp?.lastName].filter(Boolean).join(' ') || 'Faculty Name',
-        qualification: emp?.designation || 'Faculty Member',
+        qualification: emp?.address || 'Faculty Member',
         profile: emp?.profile || null,
     }));
 
@@ -285,7 +285,7 @@ const OurFacultySection = () => {
                 <Box
                     sx={{
                         display: 'grid',
-                        gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)', lg: 'repeat(4, 1fr)' },
+                        gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)', lg: 'repeat(4, 1fr)' },
                         gap: { xs: '13px', md: '23px' },
                     }}
                 >
@@ -305,7 +305,7 @@ const OurFacultySection = () => {
                                 {/* Portrait */}
                                 <Box
                                     sx={{
-                                        height: { xs: '230px', md: '300px' },
+                                        height: { xs: '400px', md: '300px' },
                                         background: '#edf3ef',
                                         position: 'relative',
                                         overflow: 'hidden',
@@ -340,10 +340,14 @@ const OurFacultySection = () => {
                                     <Box component="span" sx={{ fontSize: '10px', color: '#61816f', textTransform: 'uppercase', letterSpacing: '1.4px', fontWeight: 800 }}>
                                         {f.subject}
                                     </Box>
-                                    <Typography component="h3" sx={{ fontSize: { xs: '15px', md: '18px' }, margin: '8px 0 5px', color: GREEN }}>
+                                    {/* <Typography sx={{ fontSize: '15px', fontWeight: 700, color: '#123f31', mt: '5px', lineHeight: 1.3 }}>
                                         {f.name}
-                                    </Typography>
-                                    {/* <Typography sx={{ fontSize: '11px', color: '#6a7e74', m: 0 }}>{f.qualification}</Typography> */}
+                                    </Typography> */}
+                                    <Box
+                                        component="div"
+                                        sx={{ fontSize: '11px', color: '#6a7e74', mt: '4px', lineHeight: 1.5 }}
+                                        dangerouslySetInnerHTML={{ __html: f.qualification }}
+                                    />
                                 </Box>
                             </Box>
                         ))

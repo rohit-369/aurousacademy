@@ -222,19 +222,19 @@ const PreviousYearPaperPage = () => {
     const getItemIcon = (entityType) => {
         switch (entityType) {
             case 'video':
-                return <PlayCircleOutlineIcon sx={{ color: '#FFD700' }} />;
+                return <PlayCircleOutlineIcon sx={{ color: '#FFC800' }} />;
             case 'note':
-                return <PictureAsPdfIcon sx={{ color: '#FFD700' }} />;
+                return <PictureAsPdfIcon sx={{ color: '#FFC800' }} />;
             case 'blog':
-                return <ArticleIcon sx={{ color: '#FFD700' }} />;
+                return <ArticleIcon sx={{ color: '#FFC800' }} />;
             case 'audio':
-                return <AudiotrackIcon sx={{ color: '#FFD700' }} />;
+                return <AudiotrackIcon sx={{ color: '#FFC800' }} />;
             case 'folder':
-                return <FolderIcon sx={{ color: '#FFD700' }} />;
+                return <FolderIcon sx={{ color: '#FFC800' }} />;
             case 'quiz':
-                return <FolderIcon sx={{ color: '#FFD700' }} />;
+                return <FolderIcon sx={{ color: '#FFC800' }} />;
             default:
-                return <ScheduleIcon sx={{ color: '#FFD700' }} />;
+                return <ScheduleIcon sx={{ color: '#FFC800' }} />;
         }
     };
 
@@ -261,7 +261,7 @@ const PreviousYearPaperPage = () => {
         <Box
             sx={{
                 minHeight: '100vh',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: 'linear-gradient(135deg, #00382B 0%, #00523F 50%, #00382B 100%)',
                 position: 'relative',
                 overflow: 'hidden',
                 '&::before': {
@@ -272,9 +272,9 @@ const PreviousYearPaperPage = () => {
                     right: 0,
                     bottom: 0,
                     background: `
-                        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 177, 153, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%)
+                        radial-gradient(circle at 20% 80%, rgba(5, 150, 105, 0.28) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 200, 0, 0.18) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(5, 150, 105, 0.18) 0%, transparent 50%)
                     `,
                     zIndex: 1,
                 },
@@ -295,7 +295,7 @@ const PreviousYearPaperPage = () => {
                         variant="h1"
                         sx={{
                             fontWeight: 700,
-                            background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+                            background: 'linear-gradient(135deg, #FFC800 0%, #FFD54F 100%)',
                             backgroundClip: 'text',
                             WebkitBackgroundClip: 'text',
                             WebkitTextFillColor: 'transparent',
@@ -320,15 +320,15 @@ const PreviousYearPaperPage = () => {
                                             variant="contained"
                                             onClick={handleBackClick}
                                             sx={{
-                                                background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                                                color: '#000',
+                                                background: 'linear-gradient(135deg, #FFC800 0%, #FFB300 100%)',
+                                                color: '#00382B',
                                                 fontWeight: 700,
                                                 borderRadius: '12px',
                                                 px: 3,
                                                 py: 1.5,
                                                 textTransform: 'none',
                                                 '&:hover': {
-                                                    background: 'linear-gradient(135deg, #FFA500 0%, #FF8C00 100%)',
+                                                    background: 'linear-gradient(135deg, #FFB300 0%, #FFC800 100%)',
                                                 }
                                             }}
                                         >
@@ -445,7 +445,7 @@ const PreviousYearPaperPage = () => {
                                                                     justifyContent: 'center',
                                                                 }}
                                                             >
-                                                                <PictureAsPdfIcon sx={{ color: '#111', fontSize: 15 }} />
+                                                                <PictureAsPdfIcon sx={{ color: '#00382B', fontSize: 15 }} />
                                                             </Box>
                                                             <Typography
                                                                 sx={{
@@ -466,10 +466,10 @@ const PreviousYearPaperPage = () => {
                                                             sx={{
                                                                 width: 28,
                                                                 height: 28,
-                                                                background: '#111',
+                                                                background: '#00382B',
                                                                 color: '#fff',
                                                                 '&:hover': {
-                                                                    background: '#000',
+                                                                    background: '#00523F',
                                                                 },
                                                             }}
                                                             onClick={(e) => handleDownloadPDF(item, e)}
@@ -702,12 +702,12 @@ const PreviousYearPaperPage = () => {
                                                     flexDirection: 'column',
                                                     '&:hover': {
                                                         transform: 'translateY(-20px)',
-                                                        boxShadow: '0 30px 60px rgba(255, 215, 0, 0.15), 0 0 30px rgba(255, 215, 0, 0.1)',
+                                                        boxShadow: '0 30px 60px rgba(255, 200, 0, 0.15), 0 0 30px rgba(255, 200, 0, 0.1)',
                                                         background: 'rgba(255, 255, 255, 0.12)',
                                                         border: '1px solid rgba(255, 255, 255, 0.25)',
                                                         '& .action-button': {
                                                             transform: 'translateY(-3px) scale(1.02)',
-                                                            boxShadow: '0 12px 30px rgba(255, 215, 0, 0.3)',
+                                                            boxShadow: '0 12px 30px rgba(255, 200, 0, 0.3)',
                                                         },
                                                         '& .course-image': {
                                                             transform: 'scale(1.15) rotate(1deg)',
@@ -751,7 +751,7 @@ const PreviousYearPaperPage = () => {
                                                                 left: 0,
                                                                 right: 0,
                                                                 bottom: 0,
-                                                                background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(102,126,234,0.4) 100%)',
+                                                                background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0, 56, 43, 0.6) 100%)',
                                                             }}
                                                         />
                                                     </Box>
@@ -782,8 +782,8 @@ const PreviousYearPaperPage = () => {
                                                         variant="contained"
                                                         className="action-button"
                                                         sx={{
-                                                            background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                                                            color: '#000',
+                                                            background: 'linear-gradient(135deg, #FFC800 0%, #FFB300 100%)',
+                                                            color: '#00382B',
                                                             fontWeight: 800,
                                                             borderRadius: '12px',
                                                             px: 3,
@@ -793,10 +793,10 @@ const PreviousYearPaperPage = () => {
                                                             letterSpacing: '1px',
                                                             width: '100%',
                                                             transition: 'all 0.4s ease',
-                                                            boxShadow: '0 8px 20px rgba(255, 215, 0, 0.2)',
+                                                            boxShadow: '0 8px 20px rgba(255, 200, 0, 0.2)',
                                                             '&:hover': {
-                                                                background: 'linear-gradient(135deg, #FFB700 0%, #FF9500 100%)',
-                                                                boxShadow: '0 12px 30px rgba(255, 215, 0, 0.4)',
+                                                                background: 'linear-gradient(135deg, #FFB300 0%, #FFC800 100%)',
+                                                                boxShadow: '0 12px 30px rgba(255, 200, 0, 0.4)',
                                                             }
                                                         }}
                                                         onClick={(e) => {

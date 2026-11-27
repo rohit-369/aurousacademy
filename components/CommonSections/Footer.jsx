@@ -49,7 +49,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 text-xs font-semibold text-emerald-100/80 sm:text-sm">
               <li>
-                <Link href="/jee" className="transition hover:text-aurous-yellow">JEE</Link>
+                <Link href="/jee" className="transition hover:text-aurous-yellow">IIT-JEE</Link>
               </li>
               <li>
                 <Link href="/neet" className="transition hover:text-aurous-yellow">NEET</Link>
@@ -73,7 +73,7 @@ const Footer = () => {
                 <Link href="/refundPolicy" className="transition hover:text-aurous-yellow">Refund Policy</Link>
               </li>
               <li>
-                <a href="/Updated%20Brochure.pdf" download="Updated Brochure.pdf" className="transition hover:text-aurous-yellow">Download Brochure</a>
+                <a href="/AUROUS_BROCHURE_NEW.pdf" download="Updated Brochure.pdf" className="transition hover:text-aurous-yellow">Download Brochure</a>
               </li>
               <li>
                 <Link href="/blog" className="transition hover:text-aurous-yellow">Blog</Link>

@@ -314,6 +314,7 @@ const NavBarOne = () => {
 
                         <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">About Academy</Link>
                         <Link href="/ourTeam" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">Directors' Message</Link>
+                        <Link href="/ourFaculty" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">Faculty</Link>
 
                         <button
                             type="button"

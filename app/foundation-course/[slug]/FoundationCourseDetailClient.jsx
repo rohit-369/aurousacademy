@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Box,
     Button,
@@ -14,9 +14,9 @@ import {
     FormControlLabel,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import Network from '@/lib/Netwrok';
+import instId from '@/constant/instId';
 import { getFoundationProgram, foundationSubjects } from '@/lib/foundationPrograms';
-
-const WHATSAPP_NUMBER = '919993936947';
 
 const primaryButtonSx = {
     background: '#ffda16',
@@ -89,40 +89,72 @@ export default function FoundationCourseDetailClient({ slug }) {
     const program = getFoundationProgram(slug);
     const [registrationOpen, setRegistrationOpen] = useState(false);
     const [status, setStatus] = useState('');
+    const [coursesData, setCoursesData] = useState([]);
 
-    const openWhatsApp = (message) => {
-        window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
+    const getAllCourses = async () => {
+        try {
+            const response = await Network.fetchCourses(instId.instId);
+            const list = (response?.courses || []).filter(
+                (course) =>
+                    course.active === true &&
+                    course.tags &&
+                    course.tags.some((tag) => tag.tag === 'Enquiry From Course')
+            );
+            setCoursesData(list);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
-    const handleHeroEnquiry = (event) => {
-        event.preventDefault();
-        const f = new FormData(event.target);
-        const message =
-            'Hello Aurous Academy, I would like course counselling.\n' +
-            'Student: ' + f.get('student') + '\n' +
-            'Mobile: ' + f.get('mobile') + '\n' +
-            'Program: ' + f.get('program');
-        openWhatsApp(message);
-    };
+    useEffect(() => {
+        getAllCourses();
+    }, []);
 
-    const handleRegistrationSubmit = (event) => {
+    const handleRegistrationSubmit = async (event) => {
         event.preventDefault();
         const f = new FormData(event.target);
-        const message =
-            'Hello Aurous Academy, I would like Foundation counselling.\n' +
-            'Student: ' + f.get('student') + '\n' +
-            'Mobile: ' + f.get('mobile') + '\n' +
-            'Class: ' + f.get('stage') + '\n' +
-            'Program: ' + f.get('program');
-        openWhatsApp(message);
-        setStatus('Please send the prepared message in WhatsApp. Your enquiry has not been saved on this page.');
+        const firstName = f.get('student');
+        const contact = f.get('mobile');
+        const courseId = f.get('course');
+
+        if (!firstName || !contact || !courseId) {
+            setStatus('All fields are required');
+            return;
+        }
+
+        const selected = coursesData.find((c) => String(c.id) === String(courseId));
+        const body = {
+            firstName,
+            lastName: '',
+            email: '',
+            contact,
+            enquiryType: 'course',
+            contentId: Number(courseId),
+            instId: instId.instId,
+            domain: selected ? selected.title || selected.name : '',
+            campaignId: null,
+            note: ''
+        };
+
+        try {
+            const response = await Network.submitForm(body);
+            if (response?.errorCode === 0) {
+                setStatus('');
+                setRegistrationOpen(false);
+            } else {
+                setStatus('Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            console.log(error);
+            setStatus('Something went wrong. Please try again.');
+        }
     };
 
     return (
         <Box sx={{ fontFamily: '"Plus Jakarta Sans", Arial, sans-serif', color: '#111820', background: '#ffffff' }}>
             {/* ===== Hero ===== */}
             <Box component="section" sx={{ background: 'radial-gradient(ellipse at 55% 50%, #15563b, transparent 62%), #002e22', color: '#ffffff', overflow: 'hidden' }}>
-                <Box sx={{ width: '90%', maxWidth: 1280, margin: 'auto', position: 'relative', minHeight: { md: 515 }, display: { xs: 'block', md: 'flex' }, justifyContent: 'space-between', alignItems: 'flex-start', paddingBottom: { xs: '20px', md: 0 } }}>
+                <Box sx={{ width: '90%', maxWidth: 1280, margin: 'auto', position: 'relative',height: { xs: 'auto', md: 515 },  minHeight: { md: 515, }, display: { xs: 'block', md: 'flex' }, justifyContent: 'space-between', alignItems: 'flex-start', paddingBottom: { xs: '20px', md: 0 } }}>
                     {/* Diagonal stripes */}
                     <Box sx={{ position: 'absolute', inset: '0 -20% 0 35%', background: 'repeating-linear-gradient(124deg, transparent 0 130px, #16774b28 130px 190px, transparent 190px 260px)', display: { xs: 'none', md: 'block' }, '&::after': { content: '""', position: 'absolute', top: 55, left: '30%', width: 60, height: 280, transform: 'skew(-35deg)', background: '#ffe01c' } }} />
 
@@ -135,7 +167,7 @@ export default function FoundationCourseDetailClient({ slug }) {
                             <Box component="span" sx={{ display: 'block', width: 34, height: 2, background: '#ffdc18' }} />
                             {program.eyebrow}
                         </Box>
-                        <Typography component="h1" sx={{ fontSize: { xs: '54px', md: 'clamp(46px, 5.3vw, 76px)' }, lineHeight: 1, letterSpacing: '-2.5px', fontWeight: 850, margin: '0 0 10px' }}>
+                        <Typography component="h1" sx={{ fontSize: { xs: '54px', md: '55px' }, lineHeight: 1, letterSpacing: '-2.5px', fontWeight: 850, margin: '0 0 10px' }}>
                             <Box component="span" sx={{ fontSize: '0.62em', letterSpacing: '-1px', color: '#ffdc18' }}>{program.titlePrefix}</Box>
                             <br />
                             {program.titleMain}
@@ -164,7 +196,7 @@ export default function FoundationCourseDetailClient({ slug }) {
                     </Box>
 
                     {/* Enquiry card */}
-                    <Box sx={{ position: 'relative', zIndex: 3, width: { xs: '100%', md: '23%' }, background: '#ffffff', color: '#111820', border: '1px solid #dde6de', borderRadius: '10px', padding: { xs: '20px', md: '18px 17px' }, margin: { xs: '20px 0 0', md: '48px -1% 35px 0' }, boxShadow: '0 8px 20px #001e2120' }}>
+                    <Box sx={{ position: 'relative', zIndex: 3, width: { xs: '100%', md: '23%' }, background: '#ffffff', color: '#111820', border: '1px solid #dde6de', borderRadius: '10px', padding: { xs: '20px', md: '18px 17px' }, margin: { xs: '20px 0 0', md: '20px -1% 35px 0' }, boxShadow: '0 8px 20px #001e2120' }}>
                         <Box component="span" sx={{ display: 'block', height: 3, width: 35, background: '#237c4f', marginBottom: '14px' }} />
                         <Typography component="h2" sx={{ fontSize: { xs: '21px', md: '23px' }, letterSpacing: '-0.6px', fontWeight: 800 }}>
                             Enquire Now
@@ -172,21 +204,33 @@ export default function FoundationCourseDetailClient({ slug }) {
                         <Typography sx={{ fontSize: '13px', margin: '8px 0 20px', color: '#5b616b', lineHeight: 1.45 }}>
                             Get detailed program information from our academic team.
                         </Typography>
-                        <Box component="form" onSubmit={handleHeroEnquiry} sx={{ display: { xs: 'grid', md: 'block' }, gridTemplateColumns: { xs: '1fr 1fr', md: 'none' }, gap: { xs: '12px', md: 0 } }}>
-                            <Box component="label" sx={{ display: 'block', fontSize: '11px', fontWeight: 700, marginTop: '18px' }}>
+                        <Box component="form" onSubmit={handleRegistrationSubmit} sx={{ display: { xs: 'grid', md: 'block' }, gridTemplateColumns: { xs: '1fr 1fr', md: 'none' }, gap: { xs: '12px', md: 0 } }}>
+                            <Box component="label" sx={{ display: 'block', fontSize: '11px', fontWeight: 700, marginTop: '10px' }}>
                                 Student Name
                                 <Box component="input" name="student" placeholder="Enter student name" required maxLength={80} autoComplete="name" sx={{ display: 'block', width: '100%', border: '1px solid #dce0e5', borderRadius: '5px', padding: '11px 10px', fontSize: '12px', marginTop: '6px', minWidth: 0, fontFamily: 'inherit', color: '#111820', '&::placeholder': { color: '#9aa3aa' } }} />
                             </Box>
-                            <Box component="label" sx={{ display: 'block', fontSize: '11px', fontWeight: 700, marginTop: '18px' }}>
+                            <Box component="label" sx={{ display: 'block', fontSize: '11px', fontWeight: 700, marginTop: '10px' }}>
                                 Mobile Number
                                 <Box component="input" name="mobile" placeholder="Enter 10 digit mobile number" required type="tel" pattern="[6-9][0-9]{9}" maxLength={10} autoComplete="tel-national" sx={{ display: 'block', width: '100%', border: '1px solid #dce0e5', borderRadius: '5px', padding: '11px 10px', fontSize: '12px', marginTop: '6px', minWidth: 0, fontFamily: 'inherit', color: '#111820', '&::placeholder': { color: '#9aa3aa' } }} />
+                            </Box>
+                            <Box component="label" sx={{ display: 'block', fontSize: '11px', fontWeight: 700, marginTop: '10px' }}>
+                                Course
+                                <TextField name="course" label="Course" select required defaultValue="" fullWidth sx={fieldSx}>
+                                    {coursesData.length === 0 ? (
+                                        <MenuItem value="" disabled>Loading courses…</MenuItem>
+                                    ) : (
+                                        coursesData.map((item) => (
+                                            <MenuItem key={item.id} value={item.id}>{item.title || item.name}</MenuItem>
+                                        ))
+                                    )}
+                                </TextField>
                             </Box>
                             <Box component="input" name="program" type="hidden" value={program.programName} />
                             <Button type="submit" fullWidth sx={{ ...primaryButtonSx, marginTop: '18px', padding: '13px', gridColumn: { xs: '1/-1', md: 'auto' } }}>
                                 Register Now →
                             </Button>
                             <Typography component="small" sx={{ fontSize: '9px', lineHeight: 1.4, color: '#757e82', display: 'block', marginTop: '12px', gridColumn: { xs: '1/-1', md: 'auto' } }}>
-                                Opens WhatsApp. Press Send to share your enquiry.
+                                {status || 'Submit your details and our team will contact you shortly.'}
                             </Typography>
                             <Button type="button" onClick={() => setRegistrationOpen(true)} sx={{ background: 'transparent', color: '#315b48', fontSize: '10px', padding: '8px 0 0', textTransform: 'none', gridColumn: { xs: '1/-1', md: 'auto' } }}>
                                 Ask about course fees →
@@ -321,19 +365,21 @@ export default function FoundationCourseDetailClient({ slug }) {
                     <Box component="span" sx={{ fontSize: '9px', letterSpacing: '1.4px', fontWeight: 800, color: '#66856a' }}>AUROUS ACADEMY</Box>
                     <Typography component="h2" sx={{ fontSize: '25px', fontWeight: 800, margin: '15px 0 9px' }}>Register your interest</Typography>
                     <Typography sx={{ fontSize: '12px', lineHeight: 1.7, color: '#788575', marginBottom: '20px' }}>
-                        Share your details with our admissions team via WhatsApp.
+                        Share your details with our admissions team and we&apos;ll get back to you.
                     </Typography>
                     <Box component="form" onSubmit={handleRegistrationSubmit}>
-                        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: '15px' }}>
+                        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr', gap: '15px' }}>
                             <TextField name="student" label="Student name" required fullWidth sx={fieldSx} />
                             <TextField name="mobile" label="Mobile number" required type="tel" fullWidth sx={fieldSx} />
-                            <TextField name="stage" label="Current class" select defaultValue={program.stage} fullWidth sx={fieldSx}>
-                                <MenuItem value="7">Class 7</MenuItem>
-                                <MenuItem value="8">Class 8</MenuItem>
-                                <MenuItem value="9">Class 9</MenuItem>
-                                <MenuItem value="10">Class 10</MenuItem>
+                            <TextField name="course" label="Course" select required defaultValue="" fullWidth sx={fieldSx}>
+                                {coursesData.length === 0 ? (
+                                    <MenuItem value="" disabled>Loading courses…</MenuItem>
+                                ) : (
+                                    coursesData.map((item) => (
+                                        <MenuItem key={item.id} value={item.id}>{item.title || item.name}</MenuItem>
+                                    ))
+                                )}
                             </TextField>
-                            <TextField name="program" label="Program" defaultValue={program.programName} fullWidth sx={fieldSx} />
                         </Box>
                         <FormControlLabel
                             required
@@ -345,7 +391,7 @@ export default function FoundationCourseDetailClient({ slug }) {
                             Send registration enquiry ↗
                         </Button>
                         <Typography sx={{ fontSize: '10px', color: '#73816d', lineHeight: 1.8, marginTop: '13px' }}>
-                            Opens a prepared message. Please press Send in WhatsApp to contact the team. A counselling slot is confirmed only after the team replies.
+                            Submit your details and our admissions team will contact you shortly.
                         </Typography>
                         <Typography role="status" sx={{ fontSize: '10px', color: '#73816d', lineHeight: 1.8, marginTop: '13px' }}>
                             {status}

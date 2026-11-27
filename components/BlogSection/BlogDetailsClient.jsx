@@ -287,7 +287,7 @@ const BlogDetailsClient = ({ id, slug }) => {
         return (
             <div style={{
                 minHeight: '100vh',
-                background: 'linear-gradient(to bottom, #f0f4ff 0%, #ffffff 50%)',
+                background: 'linear-gradient(to bottom, #f0fdf4 0%, #ffffff 50%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -302,14 +302,14 @@ const BlogDetailsClient = ({ id, slug }) => {
                         <div style={{
                             position: 'absolute',
                             inset: 0,
-                            border: '4px solid rgba(102, 126, 234, 0.2)',
+                            border: '4px solid rgba(0, 56, 43, 0.2)',
                             borderRadius: '50%'
                         }}></div>
                         <div style={{
                             position: 'absolute',
                             inset: 0,
                             border: '4px solid transparent',
-                            borderTopColor: '#667eea',
+                            borderTopColor: '#00382B',
                             borderRadius: '50%',
                             animation: 'spin 1s linear infinite'
                         }}></div>
@@ -335,7 +335,7 @@ const BlogDetailsClient = ({ id, slug }) => {
         return (
             <div style={{
                 minHeight: '100vh',
-                background: 'linear-gradient(to bottom, #f0f4ff 0%, #ffffff 50%)',
+                background: 'linear-gradient(to bottom, #f0fdf4 0%, #ffffff 50%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -352,14 +352,14 @@ const BlogDetailsClient = ({ id, slug }) => {
                     <div style={{
                         width: '80px',
                         height: '80px',
-                        background: 'linear-gradient(135deg, #f0f4ff 0%, rgba(118, 75, 162, 0.15) 100%)',
+                        background: 'linear-gradient(135deg, #f0fdf4 0%, rgba(5, 150, 105, 0.15) 100%)',
                         borderRadius: '50%',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         margin: '0 auto 24px'
                     }}>
-                        <BookOpen size={40} color="#667eea" />
+                        <BookOpen size={40} color="#00382B" />
                     </div>
                     <h2 style={{
                         fontSize: '24px',
@@ -383,7 +383,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '8px',
-                            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                            background: 'linear-gradient(135deg, #00382B 0%, #00523F 50%, #00382B 100%)',
                             color: '#ffffff',
                             border: 'none',
                             padding: '14px 28px',
@@ -395,7 +395,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                         }}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.transform = 'scale(1.05)';
-                            e.currentTarget.style.boxShadow = '0 8px 24px rgba(102, 126, 234, 0.3)';
+                            e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 56, 43, 0.3)';
                         }}
                         onMouseLeave={(e) => {
                             e.currentTarget.style.transform = 'scale(1)';
@@ -412,7 +412,7 @@ const BlogDetailsClient = ({ id, slug }) => {
     }
 
     return (
-        <div style={{ minHeight: '', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
+        <div style={{ minHeight: '', background: 'linear-gradient(135deg, #00382B 0%, #00523F 50%, #00382B 100%)' }}>
         
 
             {/* Content Section */}
@@ -674,14 +674,14 @@ const BlogDetailsClient = ({ id, slug }) => {
                                 textAlign: 'center',
                                 boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)'
                             }}>
-                                <BookOpen size={48} style={{ color: '#667eea', margin: '0 auto 20px' }} />
+                                <BookOpen size={48} style={{ color: '#00382B', margin: '0 auto 20px' }} />
                                 <p style={{ color: '#6b7280', fontSize: '16px', marginBottom: '20px' }}>
                                     No content available for this blog.
                                 </p>
                                 <button
                                     onClick={() => router.push('/blog')}
                                     style={{
-                                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                                        background: 'linear-gradient(135deg, #00382B 0%, #00523F 50%, #00382B 100%)',
                                         color: '#ffffff',
                                         border: 'none',
                                         padding: '12px 24px',
@@ -721,16 +721,16 @@ const BlogDetailsClient = ({ id, slug }) => {
                                             borderRadius: '12px',
                                             overflow: 'hidden',
                                             boxShadow: '0 2px 10px rgba(0, 0, 0, 0.08)',
-                                            border: '2px solid rgba(102, 126, 234, 0.1)',
+                                            border: '2px solid rgba(0, 56, 43, 0.1)',
                                             transition: 'all 0.3s ease',
                                             cursor: 'pointer'
                                         }}
                                         onMouseEnter={(e) => {
-                                            e.currentTarget.style.borderColor = '#667eea';
-                                            e.currentTarget.style.boxShadow = '0 4px 20px rgba(102, 126, 234, 0.2)';
+                                            e.currentTarget.style.borderColor = '#00382B';
+                                            e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 56, 43, 0.2)';
                                         }}
                                         onMouseLeave={(e) => {
-                                            e.currentTarget.style.borderColor = 'rgba(102, 126, 234, 0.1)';
+                                            e.currentTarget.style.borderColor = 'rgba(0, 56, 43, 0.1)';
                                             e.currentTarget.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
                                         }}
                                     >
@@ -771,7 +771,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                     <div style={{
                         marginTop: '80px',
                         paddingTop: '60px',
-                        borderTop: '2px solid rgba(102, 126, 234, 0.15)'
+                        borderTop: '2px solid rgba(0, 56, 43, 0.15)'
                     }}>
                         <h2 style={{
                             fontSize: '32px',
@@ -802,25 +802,25 @@ const BlogDetailsClient = ({ id, slug }) => {
                                         borderRadius: '16px',
                                         overflow: 'hidden',
                                         cursor: 'pointer',
-                                        border: '2px solid rgba(102, 126, 234, 0.1)',
+                                        border: '2px solid rgba(0, 56, 43, 0.1)',
                                         transition: 'all 0.3s ease',
                                         display: 'flex',
                                         flexDirection: 'column'
                                     }}
                                     onMouseEnter={(e) => {
                                         e.currentTarget.style.transform = 'translateY(-4px)';
-                                        e.currentTarget.style.boxShadow = '0 12px 32px rgba(102, 126, 234, 0.2)';
-                                        e.currentTarget.style.borderColor = '#667eea';
+                                        e.currentTarget.style.boxShadow = '0 12px 32px rgba(0, 56, 43, 0.2)';
+                                        e.currentTarget.style.borderColor = '#00382B';
                                     }}
                                     onMouseLeave={(e) => {
                                         e.currentTarget.style.transform = 'translateY(0)';
                                         e.currentTarget.style.boxShadow = 'none';
-                                        e.currentTarget.style.borderColor = 'rgba(102, 126, 234, 0.1)';
+                                        e.currentTarget.style.borderColor = 'rgba(0, 56, 43, 0.1)';
                                     }}
                                 >
                                     <div style={{
                                         height: '180px',
-                                        background: 'linear-gradient(135deg, #f0f4ff 0%, rgba(118, 75, 162, 0.1) 100%)',
+                                        background: 'linear-gradient(135deg, #f0fdf4 0%, rgba(5, 150, 105, 0.1) 100%)',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
@@ -840,10 +840,10 @@ const BlogDetailsClient = ({ id, slug }) => {
                                             />
                                         ) : (
                                             <>
-                                                {item?.entityType === "video" && <PlayCircle size={56} color="#667eea" strokeWidth={1.5} />}
-                                                {item?.entityType === "audio" && <Music size={56} color="#667eea" strokeWidth={1.5} />}
-                                                {item?.entityType === "blog" && <BookOpen size={56} color="#667eea" strokeWidth={1.5} />}
-                                                {!["video", "audio", "blog"].includes(item?.entityType) && <FileText size={56} color="#667eea" strokeWidth={1.5} />}
+                                                {item?.entityType === "video" && <PlayCircle size={56} color="#00382B" strokeWidth={1.5} />}
+                                                {item?.entityType === "audio" && <Music size={56} color="#00382B" strokeWidth={1.5} />}
+                                                {item?.entityType === "blog" && <BookOpen size={56} color="#00382B" strokeWidth={1.5} />}
+                                                {!["video", "audio", "blog"].includes(item?.entityType) && <FileText size={56} color="#00382B" strokeWidth={1.5} />}
                                             </>
                                         )}
                                     </div>
@@ -887,7 +887,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'space-between',
-                                            color: '#667eea',
+                                            color: '#00382B',
                                             fontWeight: '700',
                                             fontSize: '14px'
                                         }}>
@@ -1019,7 +1019,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                     <div style={{
                         width: '100%',
                         maxWidth: '600px',
-                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                        background: 'linear-gradient(135deg, #00382B 0%, #00523F 50%, #00382B 100%)',
                         borderRadius: '20px',
                         padding: '48px',
                         boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'

@@ -423,7 +423,7 @@ const BlogListClient = () => {
             <Box
                 sx={{
                     // minHeight: '100vh',
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    background: 'linear-gradient(135deg, #00382B 0%, #00523F 50%, #00382B 100%)',
                 }}
             >
 
@@ -477,7 +477,7 @@ const BlogListClient = () => {
                                         color: '#ffffff',
                                         mb: 0,
                                         textAlign:'center',
-                                        background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+                                        background: 'linear-gradient(135deg, #FFC800 0%, #FFD54F 100%)',
                                         backgroundClip: 'text',
                                         WebkitBackgroundClip: 'text',
                                         WebkitTextFillColor: 'transparent',
@@ -501,11 +501,11 @@ const BlogListClient = () => {
                                     sx={{
                                         fontSize: '0.875rem',
                                         fontWeight: 700,
-                                        color: '#667eea',
+                                        color: '#00382B',
                                         textTransform: 'none',
                                         '&:hover': {
-                                            color: '#764ba2',
-                                            bgcolor: 'rgba(102, 126, 234, 0.05)',
+                                            color: '#00523F',
+                                            bgcolor: 'rgba(0, 56, 43, 0.05)',
                                         },
                                     }}
                                 >
@@ -529,13 +529,13 @@ const BlogListClient = () => {
                                             fontSize: '0.875rem',
                                             textTransform: 'none',
                                             whiteSpace: 'nowrap',
-                                            bgcolor: !selectedFolder ? '#667eea' : '#ffffff',
-                                            color: !selectedFolder ? '#ffffff' : '#667eea',
-                                            border: !selectedFolder ? 'none' : '2px solid rgba(102, 126, 234, 0.2)',
-                                            boxShadow: !selectedFolder ? '0 4px 12px rgba(102, 126, 234, 0.25)' : 'none',
+                                            bgcolor: !selectedFolder ? '#00382B' : '#ffffff',
+                                            color: !selectedFolder ? '#ffffff' : '#00382B',
+                                            border: !selectedFolder ? 'none' : '2px solid rgba(0, 56, 43, 0.2)',
+                                            boxShadow: !selectedFolder ? '0 4px 12px rgba(0, 56, 43, 0.25)' : 'none',
                                             '&:hover': {
-                                                bgcolor: !selectedFolder ? '#764ba2' : 'rgba(102, 126, 234, 0.05)',
-                                                borderColor: 'rgba(102, 126, 234, 0.4)',
+                                                bgcolor: !selectedFolder ? '#00523F' : 'rgba(0, 56, 43, 0.05)',
+                                                borderColor: 'rgba(0, 56, 43, 0.4)',
                                             },
                                         }}
                                     >
@@ -556,13 +556,13 @@ const BlogListClient = () => {
                                                 fontSize: '0.875rem',
                                                 textTransform: 'none',
                                                 whiteSpace: 'nowrap',
-                                                bgcolor: selectedFolder?.id === folder.id ? '#667eea' : '#ffffff',
-                                                color: selectedFolder?.id === folder.id ? '#ffffff' : '#667eea',
-                                                border: selectedFolder?.id === folder.id ? 'none' : '2px solid rgba(102, 126, 234, 0.2)',
-                                                boxShadow: selectedFolder?.id === folder.id ? '0 4px 12px rgba(102, 126, 234, 0.25)' : 'none',
+                                                bgcolor: selectedFolder?.id === folder.id ? '#00382B' : '#ffffff',
+                                                color: selectedFolder?.id === folder.id ? '#ffffff' : '#00382B',
+                                                border: selectedFolder?.id === folder.id ? 'none' : '2px solid rgba(0, 56, 43, 0.2)',
+                                                boxShadow: selectedFolder?.id === folder.id ? '0 4px 12px rgba(0, 56, 43, 0.25)' : 'none',
                                                 '&:hover': {
-                                                    bgcolor: selectedFolder?.id === folder.id ? '#764ba2' : 'rgba(102, 126, 234, 0.05)',
-                                                    borderColor: 'rgba(102, 126, 234, 0.4)',
+                                                    bgcolor: selectedFolder?.id === folder.id ? '#00523F' : 'rgba(0, 56, 43, 0.05)',
+                                                    borderColor: 'rgba(0, 56, 43, 0.4)',
                                                 },
                                             }}
                                         >
@@ -597,7 +597,7 @@ const BlogListClient = () => {
                         ) : (
                             <Grid2 container spacing={4}>
                                 {selectedScheduleList.map((item, idx) => {
-                                    console.log('Rendering item:', item);
+                                    // console.log('Rendering item:', item);
                                     return (
                                         <Grid2 key={item.id || idx} size={{ xs: 12, md: 6, lg: 4 }}>
                                             <Card
@@ -606,14 +606,14 @@ const BlogListClient = () => {
                                                     borderRadius: '16px',
                                                     overflow: 'hidden',
                                                     background: '#ffffff',
-                                                    border: '1px solid rgba(102, 126, 234, 0.1)',
-                                                    boxShadow: '0 4px 12px rgba(102, 126, 234, 0.08)',
+                                                    border: '1px solid rgba(0, 56, 43, 0.1)',
+                                                    boxShadow: '0 4px 12px rgba(0, 56, 43, 0.08)',
                                                     cursor: 'pointer',
                                                     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                                                     '&:hover': {
                                                         transform: 'translateY(-8px) scale(1.01)',
-                                                        boxShadow: '0 12px 28px rgba(102, 126, 234, 0.18)',
-                                                        borderColor: 'rgba(102, 126, 234, 0.3)',
+                                                        boxShadow: '0 12px 28px rgba(0, 56, 43, 0.18)',
+                                                        borderColor: 'rgba(0, 56, 43, 0.3)',
                                                     },
                                                 }}
                                             >
@@ -736,7 +736,7 @@ const BlogListClient = () => {
                                                             overflow: 'hidden',
                                                             transition: 'color 0.3s ease',
                                                             '&:group-hover': {
-                                                                color: '#667eea',
+                                                                color: '#00382B',
                                                             },
                                                         }}
                                                     >
@@ -767,7 +767,7 @@ const BlogListClient = () => {
                                                     <Button
                                                         endIcon={<ArrowForwardIcon sx={{ fontSize: '0.850rem' }} />}
                                                         sx={{
-                                                            color: '#667eea',
+                                                            color: '#00382B',
                                                             fontWeight: 700,
                                                             fontSize: '0.875rem',
                                                             textTransform: 'none',
@@ -807,7 +807,7 @@ const BlogListClient = () => {
                                         sx={{
                                             px: 8,
                                             py: 1.5,
-                                            bgcolor: '#667eea',
+                                            bgcolor: '#00382B',
                                             color: '#ffffff',
                                             fontWeight: 700,
                                             borderRadius: '12px',
@@ -815,8 +815,8 @@ const BlogListClient = () => {
                                             fontSize: '1rem',
                                             transition: 'all 0.3s ease',
                                             '&:hover': {
-                                                bgcolor: '#764ba2',
-                                                boxShadow: '0 20px 25px -5px rgba(102, 126, 234, 0.2)',
+                                                bgcolor: '#00523F',
+                                                boxShadow: '0 20px 25px -5px rgba(0, 56, 43, 0.2)',
                                             },
                                             '&:disabled': {
                                                 opacity: 0.5,

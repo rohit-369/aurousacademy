@@ -40,7 +40,7 @@ const PrivacyPolicy = () => {
         <Box
             sx={{
                 minHeight: '100vh',
-                background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)',
+                background: 'linear-gradient(135deg, #00382B 0%, #00523F 50%, #00382B 100%)',
                 py: { xs: 4, md: 8 },
                 position: 'relative',
                 overflow: 'hidden',
@@ -51,8 +51,8 @@ const PrivacyPolicy = () => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: `radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.08) 0%, transparent 50%)`,
+                    background: `radial-gradient(circle at 20% 30%, rgba(255, 200, 0, 0.1) 0%, transparent 50%),
+                                radial-gradient(circle at 80% 70%, rgba(255, 200, 0, 0.08) 0%, transparent 50%)`,
                     pointerEvents: 'none',
                     zIndex: 0,
                 },
@@ -70,11 +70,11 @@ const PrivacyPolicy = () => {
                             opacity: 0.8,
                         }}
                     >
-                        <IconButton size="small" sx={{ color: '#FFD700' }}>
+                        <IconButton size="small" sx={{ color: '#FFC800' }}>
                             <HomeIcon />
                         </IconButton>
-                        <ChevronRightIcon sx={{ color: '#FFD700', fontSize: 16 }} />
-                        <Typography variant="body2" sx={{ color: '#FFD700' }}>
+                        <ChevronRightIcon sx={{ color: '#FFC800', fontSize: 16 }} />
+                        <Typography variant="body2" sx={{ color: '#FFC800' }}>
                             Privacy Policy
                         </Typography>
                     </Box>
@@ -87,13 +87,13 @@ const PrivacyPolicy = () => {
                             variant="h1"
                             sx={{
                                 fontWeight: 700,
-                                background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+                                background: 'linear-gradient(135deg, #FFC800 0%, #FFD54F 100%)',
                                 backgroundClip: 'text',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
                                 mb: 3,
                                 fontSize: { xs: '2rem', md: '3rem' },
-                                textShadow: '0 4px 20px rgba(255, 215, 0, 0.3)',
+                                textShadow: '0 4px 20px rgba(255, 200, 0, 0.3)',
                             }}
                         >
                             Privacy Policy & Refund Policy
@@ -134,23 +134,23 @@ const PrivacyPolicy = () => {
                                         left: 0,
                                         right: 0,
                                         height: '4px',
-                                        background: 'linear-gradient(90deg, #4CAF50 0%, #45a049 100%)',
+                                        background: 'linear-gradient(90deg, #059669 0%, #047857 100%)',
                                     },
                                     '&:hover': {
                                         transform: 'translateY(-8px)',
                                         background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%)',
-                                        border: '1px solid rgba(76, 175, 80, 0.4)',
-                                        boxShadow: '0 20px 40px rgba(76, 175, 80, 0.2)',
+                                        border: '1px solid rgba(5, 150, 105, 0.4)',
+                                        boxShadow: '0 20px 40px rgba(5, 150, 105, 0.2)',
                                     },
                                 }}
                             >
                                 <CardContent sx={{ p: 4 }}>
                                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                                        <SecurityIcon sx={{ color: '#4CAF50', fontSize: 32, mr: 2 }} />
+                                        <SecurityIcon sx={{ color: '#059669', fontSize: 32, mr: 2 }} />
                                         <Typography
                                             variant="h4"
                                             sx={{
-                                                color: '#4CAF50',
+                                                color: '#059669',
                                                 fontWeight: 600,
                                                 fontSize: { xs: '1.5rem', md: '2rem' },
                                             }}
@@ -176,7 +176,7 @@ const PrivacyPolicy = () => {
                                             </Typography>
                                         ))}
                                         
-                                        <Box sx={{ mt: 3, p: 3, borderRadius: 2, background: 'rgba(255, 193, 7, 0.1)', border: '1px solid rgba(255, 193, 7, 0.3)' }}>
+                                        <Box sx={{ mt: 3, p: 3, borderRadius: 2, background: 'rgba(255, 200, 0, 0.1)', border: '1px solid rgba(255, 200, 0, 0.3)' }}>
                                             <Typography
                                                 variant="body1"
                                                 sx={{
@@ -186,7 +186,7 @@ const PrivacyPolicy = () => {
                                                     textAlign: 'justify',
                                                 }}
                                             >
-                                                <strong style={{ color: '#FFD700' }}>Note:</strong> By submitting a payment through the online-payments site you are agreeing to these terms and conditions including any updated changes in terms and conditions from time to time through our website.
+                                                <strong style={{ color: '#FFC800' }}>Note:</strong> By submitting a payment through the online-payments site you are agreeing to these terms and conditions including any updated changes in terms and conditions from time to time through our website.
                                             </Typography>
                                         </Box>
                                     </Stack>
@@ -215,24 +215,24 @@ const PrivacyPolicy = () => {
                                         left: 0,
                                         right: 0,
                                         height: '4px',
-                                        background: 'linear-gradient(90deg, #FF9800 0%, #F57C00 100%)',
+                                        background: 'linear-gradient(90deg, #FFC800 0%, #FFB300 100%)',
                                     },
                                     '&:hover': {
                                         transform: 'translateY(-8px)',
                                         background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%)',
-                                        border: '1px solid rgba(255, 152, 0, 0.4)',
-                                        boxShadow: '0 20px 40px rgba(255, 152, 0, 0.2)',
+                                        border: '1px solid rgba(255, 200, 0, 0.4)',
+                                        boxShadow: '0 20px 40px rgba(255, 200, 0, 0.2)',
                                     },
                                 }}
                             >
                                 <CardContent sx={{ p: 4 }}>
                                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                                        <MonetizationOnIcon sx={{ color: '#FF9800', fontSize: 32, mr: 2 }} />
+                                        <MonetizationOnIcon sx={{ color: '#FFC800', fontSize: 32, mr: 2 }} />
                                         <Typography
                                             id="refund-policy"
                                             variant="h4"
                                             sx={{
-                                                color: '#FF9800',
+                                                color: '#FFC800',
                                                 fontWeight: 600,
                                                 fontSize: { xs: '1.5rem', md: '2rem' },
                                             }}
@@ -250,7 +250,7 @@ const PrivacyPolicy = () => {
                                             return (
                                                 <Box key={index}>
                                                     {isHighlighted ? (
-                                                        <Box sx={{ p: 2, borderRadius: 2, background: 'rgba(255, 152, 0, 0.1)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
+                                                        <Box sx={{ p: 2, borderRadius: 2, background: 'rgba(255, 200, 0, 0.1)', border: '1px solid rgba(255, 200, 0, 0.3)' }}>
                                                             <Typography
                                                                 variant="body1"
                                                                 sx={{
@@ -260,7 +260,7 @@ const PrivacyPolicy = () => {
                                                                     textAlign: 'justify',
                                                                 }}
                                                             >
-                                                                <strong style={{ color: '#FF9800' }}>{parts[0]}:</strong>
+                                                                <strong style={{ color: '#FFC800' }}>{parts[0]}:</strong>
                                                                 {parts[1] && parts[1]}
                                                             </Typography>
                                                         </Box>
@@ -306,7 +306,7 @@ const PrivacyPolicy = () => {
                                 left: 0,
                                 right: 0,
                                 height: '4px',
-                                background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 100%)',
+                                background: 'linear-gradient(90deg, #FFC800 0%, #FFB300 100%)',
                             },
                         }}
                     >
@@ -314,7 +314,7 @@ const PrivacyPolicy = () => {
                             <Typography
                                 variant="h5"
                                 sx={{
-                                    color: '#FFD700',
+                                    color: '#FFC800',
                                     fontWeight: 600,
                                     mb: 2,
                                     fontSize: { xs: '1.2rem', md: '1.5rem' },
